@@ -24,7 +24,7 @@ for(let i = 0; i < playCount; i++) {
   })
 }
 
-// 随机抽取3个想玩的英雄
+// 模拟想⽤英雄：只要三个不能重复
 function genWantoPlay() {
   let wanttoplay: Set<Hero> = new Set() // 可以避免重复
   while(wanttoplay.size < 3) {
@@ -52,5 +52,25 @@ export const getPlayers = (req: Request, res: Response) => {
       total: mockList.length,
       items: pageList
     }
+  })
+}
+
+// 根据id获取玩家信息
+export const getPlayer = (req: Request, res: Response) => {
+  const { id } = req.params
+  for(const player of playerList) {
+    if (player.id.toString() === id) {
+      return res.json({
+        code: 20000,
+        data: {
+          player
+        }
+      })
+    }
+  }
+
+  res.json({
+    code: 70001,
+    message: '没有找到相应的玩家信息'
   })
 }
