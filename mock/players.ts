@@ -74,3 +74,41 @@ export const getPlayer = (req: Request, res: Response) => {
     message: '没有找到相应的玩家信息'
   })
 }
+
+// 创建玩家
+export const createPlayer = (req: Request, res: Response) => {
+  const {player} = req.body
+  return res.json({
+    code: 20000,
+    data: {
+      player
+    }
+  })
+}
+
+// 更新玩家信息
+export const updatePlayer = (req: Request, res: Response) => {
+  const {id} = req.params
+  const {player} = req.body
+  for(const v of playerList) {
+    if (v.id.toString() === id) {
+      return res.json({
+        code: 20000,
+        data: {
+          player
+        }
+      })
+    }
+  }
+  return res.json({
+  code: 70001,
+  message: 'player not found'
+ })
+}
+
+// 根据id 删除指定玩家
+export const deletePlayer = (req: Request, res: Response) => {
+  res.json({
+    code: 20000
+  })
+}

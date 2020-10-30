@@ -1,0 +1,49 @@
+POST http://localhost:9528/mock-api/v1/players
+Content-Type: application/json
+X-Access-Token: admin-token
+
+{"player": {
+  "id":1,
+  "accountname":"Bryan 方 V",
+  "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/petebernardo/128.jpg",
+  "bravepoints":168,
+  "exp":6816,
+  "level":26,
+  "nickname":"Laurie 韦",
+  "rank":106,
+  "wanttoplay":[
+    {"id":2,"name":"孙悟空","icon":"swc.jpg","classify":["刺客"]},
+    {"id":5,"name":"王昭君","icon":"wzj.jpg","classify":["法师"]},
+    {"id":4,"name":"后羿","icon":"hy.jpg","classify":["射手"]}
+  ],
+  "winningstreak":0
+}}
+
+###
+
+PUT http://localhost:9528/mock-api/v1/players/1
+Content-Type: application/json
+X-Access-Token: admin-token
+
+{"player": {
+  "id":1,
+  "accountname":"Bryan 方 V",
+  "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/petebernardo/128.jpg",
+  "bravepoints":168,
+  "exp":6816,
+  "level":26,
+  "nickname":"Laurie 韦",
+  "rank":106,
+  "wanttoplay":[
+    {"id":2,"name":"孙悟空","icon":"swc.jpg","classify":["刺客"]},
+    {"id":5,"name":"王昭君","icon":"wzj.jpg","classify":["法师"]},
+    {"id":4,"name":"后羿","icon":"hy.jpg","classify":["射手"]}
+  ],
+  "winningstreak":0
+}}
+
+###
+
+DELETE http://localhost:9528/mock-api/v1/players/1
+Content-Type: application/json
+X-Access-Token: admin-token
