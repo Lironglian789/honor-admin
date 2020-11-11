@@ -1,8 +1,7 @@
 import request from '@/utils/request'
-import { Avatar } from 'element-ui'
-import {Player} from './types'
+import { Player } from './types'
 
-export const getPlayers = (params: any) => 
+export const getPlayers = (params: any) =>
   request({
     url: '/players',
     method: 'get',
@@ -22,27 +21,22 @@ export const defaultPlayerData: Player = {
   winningstreak: 0
 }
 
-export const getPlayer = (id: number) => 
+export const getPlayer = (id: number) =>
   request({
     url: '/players/' + id.toString,
     method: 'get'
   })
 
-
-export const createPlayer = (data: any) => 
+export const createPlayer = (data: any) =>
   request({
     url: '/players',
     method: 'post',
     data
   })
 
-
-export const updatePlayer = (id: number, data: any) => 
+export const updatePlayer = (id: number, data: any) =>
   request({
     url: '/players/' + id,
     method: 'put',
     data
   })
-
-
-  
