@@ -48,6 +48,29 @@
           {{ row.accountname }}
         </template>
       </el-table-column>
+      <!-- 操作的列 -->
+      <el-table-column
+        label="操作"
+        align="center"
+      >
+        <template v-slot="scope">
+          <router-link :to="'/players/edit/'+scope.row.id">
+            <el-button
+              type="primary"
+              icon="el-icon-edit"
+            >
+              更新
+            </el-button>
+          </router-link>
+          <el-button
+            type="primary"
+            icon="el-icon-delete"
+            @click="handleDelete(scope)"
+          >
+            删除
+          </el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <!-- 分页 -->
     <pagination
@@ -62,7 +85,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
-import { getPlayers } from '@/api/players'
+import { getPlayers, deletePlayer } from '@/api/players'
 import { Player } from '@/api/types'
 import Pagination from '@/components/Pagination/index.vue'
 
@@ -99,8 +122,28 @@ export default class extends Vue {
     this.getList()
   }
 
+  // 新增玩家
   handleCreate() {
     this.$router.push('/players/create')
+  }
+
+  // 删除玩家
+  handleDelete(scope: any) {
+    const { $index, row } = scope
+    this.$confirm('确定删除玩家信息吗？', '警告', {
+      confirmButtonText: '确定',
+      cancelButtonClass: '取消',
+      type: 'warning'
+    }).then(async() => {
+      await deletePlayer(row.id)
+      this.list.splice($index, 1)
+      this.$message({
+        type: 'success',
+        message: '删除成功！'
+      })
+    }).catch(err => {
+      console.log(err)
+    })
   }
 }
 </script>

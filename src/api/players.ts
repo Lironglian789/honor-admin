@@ -23,7 +23,7 @@ export const defaultPlayerData: Player = {
 
 export const getPlayer = (id: number) =>
   request({
-    url: '/players/' + id.toString,
+    url: '/players/' + id.toString(),
     method: 'get'
   })
 
@@ -39,4 +39,10 @@ export const updatePlayer = (id: number, data: any) =>
     url: '/players/' + id,
     method: 'put',
     data
+  })
+
+export const deletePlayer = (id: number) =>
+  request({
+    url: '/players/' + id,
+    method: 'delete'
   })
