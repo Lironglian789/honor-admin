@@ -15,6 +15,13 @@
       >
         搜索
       </el-button>
+      <el-button
+        type="success"
+        icon="el-icon-edit"
+        @click="handleCreate"
+      >
+        新增
+      </el-button>
     </div>
     <!-- 列表 -->
     <el-table
@@ -90,6 +97,10 @@ export default class extends Vue {
   handleFilter() {
     this.listQuery.page = 1
     this.getList()
+  }
+
+  handleCreate() {
+    this.$router.push('/players/create')
   }
 }
 </script>

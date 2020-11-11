@@ -1,5 +1,6 @@
 export default {
   route: {
+    createPlayer: '创建玩家',
     playerMgt: '玩家管理',
     playerList: '玩家列表表',
     dashboard: '首页',
