@@ -126,7 +126,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import { Component, Vue } from 'vue-property-decorator'
 import { checkPermission } from '@/utils/permission' // Use permission directly
 import SwitchRoles from './components/SwitchRoles.vue'

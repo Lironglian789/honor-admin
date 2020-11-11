@@ -1,9 +1,8 @@
-
-import { RouteConfig } from 'vue-router';
-import  Layout  from '@/layout/index.vue';
+import { RouteConfig } from 'vue-router'
+import Layout from '@/layout/index.vue'
 
 const playerRoutes: RouteConfig = {
-  path: '/playsers',
+  path: '/players',
   component: Layout,
   meta: {
     title: 'playerMgt', // i18n信息需要额外处理
@@ -21,4 +20,4 @@ const playerRoutes: RouteConfig = {
   ]
 }
 
-export default  playerRoutes
+export default playerRoutes

@@ -36,10 +36,10 @@ function genWantoPlay() {
 // 实现路由
 export const getPlayers = (req: Request, res: Response) => {
   // 从查询的参数中获取分页、过滤关键词等参数
-  const { accountname, page = 1, limit = 10 } = req.params
+  const { accountname, page = 1, limit = 20 } = req.query
   // 根据账号名过滤
   let mockList = playerList.filter(item => {
-    if (accountname && item.accountname.indexOf(accountname) < 0) {
+    if (accountname && item.accountname.indexOf((accountname as string)) < 0) {
       return false
     }
     return true
